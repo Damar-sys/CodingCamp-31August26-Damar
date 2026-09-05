@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List Life Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-top">
+      <h1 class="site-title">&#128197; Life Dashboard</h1>
+      <button id="theme-toggle" class="btn btn-icon" aria-label="Toggle dark mode">
+        <span id="theme-icon">&#127769;</span>
+      </button>
+    </div>
+
+    <div class="header-clock">
+      <p id="clock" class="clock" aria-live="polite" aria-label="Current time">00:00:00</p>
+      <p id="date-display" class="date-display"></p>
+    </div>
+
+    <div class="header-greeting">
+      <p id="greeting-text" class="greeting-text">Good Morning! &#128075;</p>
+      <div class="name-input-group">
+        <input
+          type="text"
+          id="name-input"
+          class="input"
+          placeholder="Enter your name&#8230;"
+          maxlength="40"
+          aria-label="Your name"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button id="save-name-btn" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== DASHBOARD GRID ===== -->
+  <main class="dashboard">
+
+    <!-- FOCUS TIMER CARD -->
+    <section class="card" id="timer-card" aria-label="Focus Timer">
+      <h2 class="card-title">&#9200; Focus Timer</h2>
+      <div
+        id="timer-display"
+        class="timer-display"
+        aria-live="polite"
+        aria-label="Timer display"
+        role="timer"
+      >25:00</div>
+      <div class="timer-controls">
+        <button id="timer-start" class="btn btn-success" aria-label="Start timer">
+          &#9654; Start
+        </button>
+        <button id="timer-stop" class="btn btn-warning" aria-label="Stop timer">
+          &#9646;&#9646; Stop
+        </button>
+        <button id="timer-reset" class="btn btn-danger" aria-label="Reset timer">
+          &#8635; Reset
+        </button>
+      </div>
+      <p id="timer-status" class="timer-status">Ready to focus!</p>
+    </section>
+
+    <!-- TO-DO LIST CARD -->
+    <section class="card" id="todo-card" aria-label="To-Do List">
+      <h2 class="card-title">&#9989; To-Do List</h2>
+      <div class="todo-input-group">
+        <input
+          type="text"
+          id="todo-input"
+          class="input"
+          placeholder="Add a new task&#8230;"
+          maxlength="100"
+          aria-label="New task"
+          autocomplete="off"
+        />
+        <button id="todo-add-btn" class="btn btn-primary" aria-label="Add task">Add</button>
+      </div>
+
+      <!-- Task stats -->
+      <div id="todo-stats" class="todo-stats" aria-live="polite" hidden>
+        <span id="todo-stats-text" class="todo-stats-text"></span>
+        <div class="todo-progress-bar" aria-hidden="true">
+          <div id="todo-progress-fill" class="todo-progress-fill"></div>
+        </div>
+      </div>
+
+      <ul id="todo-list" class="todo-list" aria-label="Task list"></ul>
+    </section>
+
+    <!-- QUICK LINKS CARD -->
+    <section class="card" id="links-card" aria-label="Quick Links">
+      <h2 class="card-title">&#128279; Quick Links</h2>
+      <div class="links-input-group">
+        <input
+          type="text"
+          id="link-name-input"
+          class="input"
+          placeholder="Site name"
+          maxlength="40"
+          aria-label="Website name"
+          autocomplete="off"
+        />
+        <input
+          type="text"
+          id="link-url-input"
+          class="input"
+          placeholder="https://example.com"
+          maxlength="200"
+          aria-label="Website URL"
+          autocomplete="off"
+        />
+        <button id="link-add-btn" class="btn btn-primary" aria-label="Add link">Add Link</button>
+      </div>
+      <div id="links-container" class="links-container" role="list" aria-label="Saved links"></div>
+    </section>
+
+  </main>
+
+  <!-- ===== EDIT TASK MODAL ===== -->
+  <div
+    id="edit-modal"
+    class="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    hidden
+  >
+    <div class="modal">
+      <h3 id="modal-title" class="modal-title">&#9999;&#65039; Edit Task</h3>
+      <input
+        type="text"
+        id="edit-input"
+        class="input"
+        maxlength="100"
+        aria-label="Edit task text"
+        autocomplete="off"
+      />
+      <div class="modal-actions">
+        <button id="edit-save-btn" class="btn btn-primary">Save</button>
+        <button id="edit-cancel-btn" class="btn btn-danger">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
